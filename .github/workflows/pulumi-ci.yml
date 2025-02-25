@@ -36,4 +36,4 @@ jobs:
       - name: Run infrastructure tests
         run: |
           pulumi stack select dev  # Substitua pelo nome do seu stack
-          pytest test_infra.py  # Execute os testes com o pytest
+          pytest test_project.py  # Execute os testes com o pytest
