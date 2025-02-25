@@ -2,14 +2,14 @@ import pulumi
 import pulumi_docker as docker
 
 config = pulumi.Config()
-backend_port = config.get_int("backend_port") or 8000
+backend_port = config.get_int("backend_port") or 8001
 frontend_port = config.get_int("frontend_port") or 8042
 
 # Cria uma rede Docker para comunicação entre containers
 network = docker.Network("escola-network")
 
 # Função para criar containers dinamicamente
-def criar_container_docker(nome, imagem, porta_interna, porta_externa):
+def criar_container(nome, imagem, porta_interna, porta_externa):
     return docker.Container(
         nome,
         image=imagem,
