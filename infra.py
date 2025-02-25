@@ -9,7 +9,7 @@ frontend_port = config.get_int("frontend_port") or 8042
 network = docker.Network("escola-network")
 
 # Função para criar containers dinamicamente
-def criar_container(nome, imagem, porta_interna, porta_externa):
+def criar_container_docker(nome, imagem, porta_interna, porta_externa):
     return docker.Container(
         nome,
         image=imagem,
