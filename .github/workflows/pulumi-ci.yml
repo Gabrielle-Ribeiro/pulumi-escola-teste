@@ -29,14 +29,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 4. Configurar Pulumi
-      - name: Set up Pulumi
-        uses: pulumi/actions/setup-pulumi@v3
-        with:
-          pulumi_version: 'latest'  # Ou especifique a versão que você deseja
+      - name: Create Pulumi Stack
+        run: pulumi stack init dev
 
       # 5. Rodar os testes da infraestrutura
       - name: Run infrastructure tests
         run: |
-          pulumi stack select <your-stack-name>  # Substitua pelo nome do seu stack
+          pulumi stack select dev  # Substitua pelo nome do seu stack
           pytest test_infra.py  # Execute os testes com o pytest
